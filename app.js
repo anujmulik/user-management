@@ -2,14 +2,17 @@ const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
+app.use(cors());
 app.use(compression());
 app.use(helmet());
 app.use(logger('dev'));
